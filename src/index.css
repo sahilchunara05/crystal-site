@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #e8847c;
+  --color-primary-hover: #d9756d;
+  --color-secondary: #f5f1ee;
+  --color-accent: #2f4739;
+  --color-accent-hover: #213328;
+  --color-bg-light: #fafafa;
+  --color-bg-dark: #0a0a0a;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #171717;
+  --color-text-main: #222222;
+  --color-text-muted: #555555;
+  --color-text-dark-main: #f0f0f0;
+  --color-text-dark-muted: #a3a3a3;
+  
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    font-family: var(--font-inter);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .dark body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark-main);
+  }
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    @apply bg-surface-light/70 backdrop-blur-xl border border-white/20;
+  }
+  .dark .glass {
+    @apply bg-surface-dark/70 border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-surface-light/80 backdrop-blur-lg border border-white/40 shadow-xl;
+  }
+  .dark .glass-card {
+    @apply bg-surface-dark/80 border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)];
+  }
+}
